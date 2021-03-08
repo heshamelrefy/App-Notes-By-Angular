@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
+    <div class="container">
+      <a class="navbar-brand" href="#"><i class="far fa-sticky-note" aria-hidden="true"></i> Note</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          
+          <li *ngIf="!_AuthService.isLoggedIn()" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              login
+            </a>
+            
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" routerLink='/signup' >signup</a>
+              <a class="dropdown-item" routerLink='/signin'>signin</a>
+            
+            </div>
+          </li>
+          <li *ngIf="_AuthService.isLoggedIn()" class="nav-item dropdown ">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              logOut
+            </a>
+            
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item " style="cursor: pointer;" (click)="logOut()" >LogOut</a>
+              
+            
+            </div>
+          </li>
+           
+          
+        </ul>
+      
+      </div>
+    </div>
+    </nav>

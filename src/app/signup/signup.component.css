@@ -1,0 +1,17 @@
+#signUp
+{
+    min-height: 100vh;
+    background-color: #343a40!important;
+}
+.container
+{
+    width: 50%;
+    position: absolute;
+    top: 35%;
+    left: 25%;
+}
+.container input
+{
+    box-shadow: none;
+    padding: 10px;
+}

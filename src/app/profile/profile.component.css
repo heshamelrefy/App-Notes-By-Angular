@@ -1,0 +1,12 @@
+#profile
+{
+    background-color: #666;
+    min-height: 100vh;
+}
+.note
+{
+    height: 200px;
+    width: 200px;
+    background-color: #fcc;
+    
+}

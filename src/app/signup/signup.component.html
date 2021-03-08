@@ -1,0 +1,45 @@
+<section id="signUp">
+    <div class="container">
+        <form [formGroup]="signUp" (ngSubmit)="signUp.valid&&FormData()">
+        <div  class="row " >
+            <div class="col-md-6 col-sm-12 mb-3">
+                <input [class.is-valid]="signUp.get('first_name').status=='VALID'" type="text" class=" form-control" formControlName="first_name" placeholder="Enter First Name">
+                <div *ngIf="signUp.get('first_name').errors && signUp.get('first_name').touched" class="alert alert-danger">
+                    The First Name is required
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <input [class.is-valid]="signUp.get('last_name').status=='VALID'" type="text" class=" form-control" formControlName="last_name" placeholder="Enter Last Name">
+                <div *ngIf="signUp.get('last_name').errors && signUp.get('last_name').touched" class="alert alert-danger">
+                    The Last Name is required
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 mb-3">
+                <input [class.is-valid]="signUp.get('email').status=='VALID'" type="text" class=" form-control" formControlName="email" placeholder="Enter Your E-mail">
+                <div *ngIf="signUp.get('email').errors && signUp.get('email').touched" class="alert alert-danger">
+                    The Email is required
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 mb-3">
+                <input [class.is-valid]="signUp.get('age').status=='VALID'" type="number" class=" form-control" formControlName="age" placeholder="Enter Your Age">
+                <div *ngIf="signUp.get('age').errors && signUp.get('age').touched" class="alert alert-danger">
+                    The Age is required
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <input [class.is-valid]="signUp.get('password').status=='VALID'" type="password" class=" form-control" formControlName="password" placeholder="Enter Password">
+                <div *ngIf="signUp.get('password').errors && signUp.get('password').touched" class="alert alert-danger">
+                    The Password is required
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <button [disabled]="signUp.invalid" [style.backgroundColor]="signUp.invalid? 'gray':'#17a2b8'"  
+                [style.border]="signUp.invalid? 'gray':'#17a2b8'"
+                class="btn btn-primary w-100 mt-3 "><span *ngIf="isClicked">Sign Up</span> <span *ngIf="!isClicked">Waiting...</span></button>
+                 <div *ngIf="isSuccess" class=" text-center alert alert-success mt-3">{{responseMassage}}</div>
+                <div *ngIf="isBug" class=" text-center alert alert-danger mt-3">{{isReport}}</div> 
+            </div>
+        </div>
+        </form>
+    </div>
+</section>

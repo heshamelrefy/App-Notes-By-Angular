@@ -1,0 +1,31 @@
+<section id="signIn">
+    <div class="container">
+      <form [formGroup]='signIn' (ngSubmit)="signIn.valid&&FormData()">
+        <div class="row ">
+         
+            <div class="col-md-12 col-sm-12 mb-3">
+                <input [class.is-valid]="signIn.get('email').status=='VALID'" type="email" formControlName="email" class=" form-control" placeholder="Enter Your E-mail">
+                <div *ngIf="signIn.get('email').errors&&signIn.get('email').touched" class="alert alert-danger">
+                    The Email is required
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 mb-3">
+                <input [class.is-valid]="signIn.get('password').status=='VALID'" type="password" formControlName="password" class=" form-control" placeholder="Enter Your Password">
+                <div *ngIf="signIn.get('password').errors&&signIn.get('password').touched" class="alert alert-danger">
+                    The Password is required
+                </div>
+            </div>
+           
+            <div class="col-md-12 col-sm-12">
+                <button 
+                [disabled]="signIn.invalid" [style.backgroundColor]="signIn.invalid? 'gray':'#17a2b8'"  
+                [style.border]="signIn.invalid? 'gray':'#17a2b8'"
+                class="btn btn-primary w-100 ">Sign In</button>
+                <div *ngIf="inccorectPassword"  class="col-md-12 alert alert-danger text-center">This password is wrong</div>
+
+            </div>
+        </div>
+      </form>
+     
+    </div>
+</section>
